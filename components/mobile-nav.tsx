@@ -18,6 +18,26 @@ import { EXCLUDED_SECTIONS, isComponentsFolder } from "@/lib/docs";
 import { getAllPagesFromFolder, getPagesFromFolder } from "@/lib/page-tree";
 import { cn } from "@/lib/utils";
 
+const TOP_LEVEL_SECTIONS = [
+  { href: ROUTES.DOCS, name: "Introduction" },
+  {
+    href: ROUTES.DOCS_COMPONENTS,
+    name: "Components",
+  },
+  {
+    href: ROUTES.DOCS_INSTALLATION,
+    name: "Installation",
+  },
+  {
+    href: ROUTES.DOCS_MCP,
+    name: "MCP",
+  },
+  {
+    href: ROUTES.DOCS_REGISTRY,
+    name: "Registry",
+  },
+];
+
 const MobileLink = ({
   href,
   onOpenChange,
@@ -142,6 +162,18 @@ export const MobileNav = ({
                   onOpenChange={setOpen}
                 >
                   {item.label}
+                </MobileLink>
+              ))}
+            </div>
+          </div>
+          <div className="flex flex-col gap-4">
+            <div className="text-sm font-medium text-muted-foreground">
+              Sections
+            </div>
+            <div className="flex flex-col gap-3">
+              {TOP_LEVEL_SECTIONS.map(({ name, href }) => (
+                <MobileLink key={name} href={href} onOpenChange={setOpen}>
+                  {name}
                 </MobileLink>
               ))}
             </div>

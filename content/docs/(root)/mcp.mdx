@@ -1,0 +1,28 @@
+---
+title: MCP
+description: Learn how to use the shadcn MCP (Model Context Protocol) server with ogcn.
+---
+
+[MCP](https://modelcontextprotocol.io/) is an open protocol that standardizes how applications provide context to LLMs. The shadcn CLI can register an MCP server so your editor can discover registry components—including **ogcn** Open Graph image components.
+
+## Configure MCP
+
+Run:
+
+```bash
+npx dlx shadcn@latest mcp init
+```
+
+Choose your MCP client when prompted, then enable the MCP server in that client to finish setup.
+
+## Usage
+
+With MCP enabled, you can ask your IDE to work with ogcn Open Graph image components. Example prompts:
+
+- Generate a **Blog** OG image with author, category, and title.
+- Create a **Stat** card for social sharing with a large number and label.
+- Build a **Product** OG image with image, title, and price.
+- Design a **Quote** card with attribution and styling.
+- Lay out a **Grid** of multiple OG components for a gallery preview.
+
+Install components from this registry with `npx shadcn@latest add` and the JSON URL from each docs page, then use them in your Next.js `ImageResponse` endpoint as shown in each component's documentation.
